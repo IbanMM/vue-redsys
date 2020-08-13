@@ -6,7 +6,7 @@
 
             <label class="block text-gray-700 text-sm font-bold mb-2" for="amount">Amount</label>
 
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="amount" type="text" placeholder="Amount">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="amount" type="text" placeholder="Amount" v-model="amount">
 
         </div>
 
@@ -14,8 +14,12 @@
 
             <label class="block text-gray-700 text-sm font-bold mb-2" for="order">Order Number</label>
 
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="order" type="text" placeholder="Order">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="order" type="text" placeholder="Order" v-model="paymentData.DS_MERCHANT_ORDER">
 
+        </div>
+
+        <div>
+            {{ paymentData.DS_MERCHANT_AMOUNT }}
         </div>
 
         <div class="py-4">
@@ -52,11 +56,11 @@
             return {
                 data: null,
                 loading: false,
-                Ds_Merchant_MerchantCode: 999008881,
+                amount: null,
                 paymentData: {
                     DS_MERCHANT_AMOUNT: "",
                     DS_MERCHANT_CURRENCY: "978",
-                    DS_MERCHANT_MERCHANTCODE: "059350272",
+                    DS_MERCHANT_MERCHANTCODE: "",
                     DS_MERCHANT_MERCHANTURL: "http://www.prueba.com/urlNotificacion.php",
                     DS_MERCHANT_ORDER: "",
                     DS_MERCHANT_TERMINAL: "1",
