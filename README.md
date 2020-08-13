@@ -1,4 +1,4 @@
-# Redsys checkout in Vue JS
+# Redsys checkout with Vue JS
 
 This is a very simple implementation of a checkout process to send the data encoded to the Redsys payment platform in Vue JS **no server needed all in the frontend**
 
