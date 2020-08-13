@@ -4,29 +4,21 @@
 
         <section>
 
-            <b-row>
+            <div class="flex flex-row">
 
-                <b-col cols="12" class="fuid-form-to-render">
+                <div>
 
-                    <h4 class="fuid-resu-tit">{{ $t('paymentko.tit') }}</h4>
+                    <h4 class="">Error in the payment process</h4>
 
-                </b-col>
+                </div>
 
-                <b-col>
-
-                    <errorFromServer
-                        :id="id"
-                    />
-
-                </b-col>
-
-                <b-col cols="12">
+                <div>
 
                     <p>{{ Ds_MerchantParameters }}</p>
 
-                </b-col>
+                </div>
             
-            </b-row>
+            </div>
 
         </section>
 
@@ -36,8 +28,6 @@
 
 <script>
 
-    import { mapActions } from 'vuex'
-    import errorFromServer from '@/components/errorFromServer'
     import LayoutDefault from '@/components/layouts/LayoutDefault'
 
     export default {
@@ -46,19 +36,9 @@
             
             return {
 
-                id: 11,
                 Ds_MerchantParameters: false
 
             }
-
-        },
-
-
-
-        methods: {
-
-            ...mapActions('Login', ['loginUser']),
-            ...mapActions('Matricula', ['tpvBackPostData']),
 
         },
 
@@ -78,8 +58,7 @@
 
         components: {
 
-            LayoutDefault,
-            errorFromServer
+            LayoutDefault
 
         },
 
@@ -97,19 +76,6 @@
 
                     console.log( this.Ds_MerchantParameters )
 
-                    // Send the data to the API bum bum
-                    let logToken = await this.loginUser( { username: process.env.VUE_APP_API_USER, password: process.env.VUE_APP_API_PASSWORD, componentId: this.id } )
-
-                    if( logToken ) {
-
-                        let code = parseInt( this.Ds_MerchantParameters.Ds_Response )
-
-                        let matriculaFinish = this.tpvBackPostData( {numeroPedido:this.Ds_MerchantParameters.Ds_Order, code:code, componentId: this.id} )
-
-                        console.log( matriculaFinish )
-
-                    }
-
                 }
 
             })
@@ -119,7 +85,3 @@
     }
     
 </script>
-
-<style lang="scss" scoped>
-
-</style>

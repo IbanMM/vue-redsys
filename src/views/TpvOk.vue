@@ -4,36 +4,28 @@
 
         <section v-if="Ds_MerchantParameters">
 
-            <b-row>
+            <div class="flex flex-row">
 
                 {{ Ds_MerchantParameters }}
 
-                <b-col cols="12" class="fuid-form-to-render">
+                <div class="">
 
-                    <h4 class="fuid-resu-tit">{{ $t('paymentok.tit') }}</h4>
+                    <h4 class="">{{ $t('paymentok.tit') }}</h4>
 
-                </b-col>
+                </div>
 
-            </b-row>
+            </div>
 
-            <b-row v-if="Ds_MerchantParameters">
+            <div class="flex flex-row" v-if="Ds_MerchantParameters">  
 
-                <b-col>
-
-                    <errorFromServer
-                        :id="id"
-                    />
-
-                </b-col>  
-
-                <b-col cols="12">
+                <div class="">
 
                     <p>{{ $t('paymentok.order') }}: {{ Ds_MerchantParameters.Ds_Order }}</p>
                     <p>{{ $t('paymentok.amount') }}: {{amount}}</p>
 
-                </b-col>
+                </div>
             
-            </b-row>
+            </div>
 
         </section>
 
@@ -43,8 +35,6 @@
 
 <script>
 
-    import { mapActions } from 'vuex'
-    import errorFromServer from '@/components/errorFromServer'
     import LayoutDefault from '@/components/layouts/LayoutDefault'
 
     export default {
@@ -52,16 +42,10 @@
         data() {
             
             return {
-                id: 10,
+
                 Ds_MerchantParameters: null
+
             }
-
-        },
-
-        methods: {
-            
-            ...mapActions('Login', ['loginUser']),
-            ...mapActions('Matricula', ['tpvBackPostData']),
 
         },
 
@@ -81,8 +65,7 @@
 
         components: {
 
-            LayoutDefault,
-            errorFromServer
+            LayoutDefault
 
         },
 
@@ -98,20 +81,6 @@
                     // Convert the string in a object
                     this.Ds_MerchantParameters = JSON.parse( this.$CryptoJS.enc.Utf8.stringify( merchant_base64 ) )
                     
-                    console.log( this.Ds_MerchantParameters )
-
-                    // Send the data to the API bum bum
-                    let logToken = await this.loginUser( { username: process.env.VUE_APP_API_USER, password: process.env.VUE_APP_API_PASSWORD, componentId: this.id } )
-
-                    if( logToken ) {
-
-                        let code = parseInt( this.Ds_MerchantParameters.Ds_Response )
-
-                        let matriculaFinish = this.tpvBackPostData( {numeroPedido:this.Ds_MerchantParameters.Ds_Order, code:code, componentId: this.id} )
-
-                        console.log( matriculaFinish )
-
-                    }
 
                 }
 
@@ -122,7 +91,3 @@
     }
     
 </script>
-
-<style lang="scss" scoped>
-
-</style>
