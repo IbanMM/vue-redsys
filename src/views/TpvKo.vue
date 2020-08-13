@@ -4,15 +4,15 @@
 
         <section>
 
-            <div class="flex flex-row">
+            <div>
 
-                <div>
+                <div class="w-full py-4">
 
-                    <h4 class="">Error in the payment process</h4>
+                    <h4 class="text-xl font-bold">Error in the payment process</h4>
 
                 </div>
 
-                <div>
+                <div class="w-full" v-if="Ds_MerchantParameters">
 
                     <p>{{ Ds_MerchantParameters }}</p>
 

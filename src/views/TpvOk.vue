@@ -6,22 +6,22 @@
 
             <div class="flex flex-row">
 
-                {{ Ds_MerchantParameters }}
-
                 <div class="">
 
-                    <h4 class="">{{ $t('paymentok.tit') }}</h4>
+                    <h4 class="text-xl font-bold">Payment OK</h4>
 
                 </div>
 
             </div>
 
-            <div class="flex flex-row" v-if="Ds_MerchantParameters">  
+            <div class="flex flex-row" v-if="Ds_MerchantParameters">
+
+                <div>{{ Ds_MerchantParameters }}</div> 
 
                 <div class="">
 
-                    <p>{{ $t('paymentok.order') }}: {{ Ds_MerchantParameters.Ds_Order }}</p>
-                    <p>{{ $t('paymentok.amount') }}: {{amount}}</p>
+                    <p>Order number: {{ Ds_MerchantParameters.Ds_Order }}</p>
+                    <p>Amount: {{amount}}</p>
 
                 </div>
             
@@ -80,7 +80,6 @@
 
                     // Convert the string in a object
                     this.Ds_MerchantParameters = JSON.parse( this.$CryptoJS.enc.Utf8.stringify( merchant_base64 ) )
-                    
 
                 }
 
