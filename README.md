@@ -20,7 +20,8 @@ npm install
 For this to work properly must run under **https**
 
 Open **.env.development** and set your base url
-Open **env.production** and set your base url
+
+Open **.env.production** and set your base url
 
 Open **src/views/Redsys.vue** and set your **DS_MERCHANT_MERCHANTCODE**
 
