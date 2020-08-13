@@ -1,12 +1,10 @@
 # Redsys checkout in Vue JS
 
-This is a very simple implementation of a checkout process to send the data encode to the Redsys payment platform in Vue JS **no server nedded all in the frontend**
+This is a very simple implementation of a checkout process to send the data encoded to the Redsys payment platform in Vue JS **no server needed all in the frontend**
 
 Hope this can help anyone!!
 
 Uses [vue-cryptojs](https://github.com/tpenaranda/vue-cryptojs).
-
-This is a very simple implementation.
 
 I'm using [tailwind](https://tailwindcss.com/) to set a minimal CSS layout, colors, etc ...
 
@@ -17,7 +15,7 @@ npm install
 
 ## Instructions
 
-For this to work properly must run under **https**
+For this to work properly must run under **https** mostly for the OK or OK urls, the first step (sending the data) works perfect in a local enviroment
 
 Open **.env.development** and set your base url
 
